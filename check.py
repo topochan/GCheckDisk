@@ -21,13 +21,12 @@ DISK_PRODUCT=1
 class CheckDisk:
 	
 	
-	def about_check(self,object):
-		# create an simple about message dialog and display modally to the user
-		dialog = gtk.MessageDialog(None,
-					gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
-					gtk.MESSAGE_INFO, gtk.BUTTONS_OK, "GCheckDisk is a GNU GPL V3 Program by Miguel A. Guillen Tarazaga")
-		dialog.run()
-		dialog.destroy()
+	def about_check(self,widget):
+		about=self.builder.get_object('aboutWin')
+		about.set_logo(self.diskIcon)		
+		about.run()
+		about.hide()
+		
 	
 	def error_message(self, message):
 		print message
@@ -99,12 +98,12 @@ class CheckDisk:
 	'''
 	Easy method to quit app
 	'''
-	def quit_app(self,button):
+	def quit_app(self,widget):
 		gtk.main_quit()
 	'''
 	Refres list of Disks and fill into IconView
 	'''
-	def refresh_disks(self,object):
+	def refresh_disks(self,widget):
 		self.disks, self.volums = listdisks.discover()
 		self.fill_iconView(self.disks)
 		self.clear_data()
@@ -120,7 +119,7 @@ class CheckDisk:
 		self.hboxWarning.hide()
 		
 	'''Launch check to actual selected partition, lauch gobject io_add_watch to fill buffer text'''		
-	def launch_check(self,object):
+	def launch_check(self,widget):
 		self.wCheck.show()
 		self.textBufferVT.set_text("")
 		
@@ -151,7 +150,7 @@ class CheckDisk:
 	Callback to hide check window
 	
 	'''
-	def on_btCerrar_clicked(self, object):
+	def on_btCerrar_clicked(self, widget):
 		self.wCheck.hide()
 				
 		
@@ -188,6 +187,8 @@ class CheckDisk:
 		self.textBufferVT=self.builder.get_object('textBufferVT')
 		self.wCheck= self.builder.get_object('wCheck')
 		self.progress= self.builder.get_object('pbCheck')
+		
+
 		
 		'''Set icon from app'''
 		self.window.set_icon_from_file(self.iconPath)
