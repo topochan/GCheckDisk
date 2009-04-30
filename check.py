@@ -91,9 +91,9 @@ class CheckDisk:
 	'''
 	When iconView double click activate this callback
 	'''
-	def on_item_activated(self,widget, item):
+	def on_listaDiscos_selection_changed(self,widget):
 		self.clear_data()
-		self.fill_comboBox(self.volums,item[0])
+		self.fill_comboBox(self.volums,widget.get_text_column())
 	
 	'''
 	Easy method to quit app

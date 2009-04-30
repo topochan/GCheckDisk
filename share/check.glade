@@ -51,7 +51,7 @@
                         <property name="can_focus">True</property>
                         <property name="model">iconModel</property>
                         <property name="columns">1</property>
-                        <signal name="item_activated" handler="on_item_activated"/>
+                        <signal name="selection_changed" handler="on_listaDiscos_selection_changed"/>
                       </object>
                     </child>
                   </object>
