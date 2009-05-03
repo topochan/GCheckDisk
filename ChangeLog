@@ -1,0 +1,23 @@
+commit 034a99cb3a818c92cf7ff1e69a7efba4b124a023
+Author: Miguel Angel Guillén <miguitas@gmail.com>
+Date:   Thu Apr 30 13:50:33 2009 +0200
+
+    Change iconview selection mode to on_chage
+
+commit df1054ed9194e3dc80452fd5b02da8c65c7a2779
+Author: Miguel Angel Guillén <miguitas@gmail.com>
+Date:   Thu Apr 30 12:38:23 2009 +0200
+
+    New about dialog make with gtk.about_dialog in builder
+
+commit d7df93e31ff2ab86340c8651bd98563e0adbf779
+Author: Miguel Angel Guillén <miguitas@gmail.com>
+Date:   Thu Apr 30 10:28:36 2009 +0200
+
+    delete unnecesary file
+
+commit 936c6b4871495b11eba50773015830c68d3f6914
+Author: Miguel Angel Guillén <miguitas@gmail.com>
+Date:   Thu Apr 30 10:06:51 2009 +0200
+
+    Initial commit, first usable version
