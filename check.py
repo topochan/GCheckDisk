@@ -1,13 +1,16 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import gobject
-import gtk
 import pygtk
+pygtk.require("2.0")
+import gtk
 import sys
 import os
 import gtk
 from listdisks import listdisks
 import subprocess
 
+gtk.gdk.threads_init()
 '''Constant for easy modifications, next version I use dictionaries'''
 COL_PATH = 0
 COL_PIXBUF = 2
@@ -66,6 +69,7 @@ class CheckDisk:
 	'''
 	def get_icon(self, name, size):
 		theme = gtk.icon_theme_get_default()
+		
 		return theme.load_icon(name, size, 0)
 		
 	'''
@@ -75,8 +79,9 @@ class CheckDisk:
 		self.comboModel.clear()
 
 		for volum in volums:
-			if volum[VOLUME_STORE]==self.disks[disk][DISK_STORE]:
+			if volum[VOLUME_STORE]==disk:
 				self.comboModel.append([str(volum[VOLUME_VOLUM]),volum[VOLUME_FS],self.volumIcon])
+				
 	
 	'''
 	Fill iconView with disk stores
@@ -92,8 +97,8 @@ class CheckDisk:
 	When iconView double click activate this callback
 	'''
 	def on_listaDiscos_selection_changed(self,widget):
-		self.clear_data()
-		self.fill_comboBox(self.volums,widget.get_text_column())
+		self.clear_data()		
+		self.fill_comboBox(self.volums,self.disks[widget.get_selected_items()[0][0]][DISK_STORE])
 	
 	'''
 	Easy method to quit app
@@ -169,6 +174,7 @@ class CheckDisk:
 		self.volumIcon= self.get_icon(gtk.STOCK_HARDDISK,22)
 
 		self.builder = gtk.Builder()
+		
 		self.builder.add_from_file(self.pathGlade) 
 
 		self.builder.connect_signals(self)

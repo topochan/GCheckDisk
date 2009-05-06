@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <interface>
-  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-requires gtk+ 2.12 -->
   <!-- interface-naming-policy project-wide -->
   <object class="GtkWindow" id="mainWindow">
+    <property name="width_request">500</property>
+    <property name="height_request">350</property>
     <property name="border_width">6</property>
     <property name="title" translatable="yes">GCheck - Partition Check utility</property>
     <property name="window_position">center</property>
@@ -45,6 +47,7 @@
                     <property name="can_focus">True</property>
                     <property name="hscrollbar_policy">never</property>
                     <property name="vscrollbar_policy">automatic</property>
+                    <property name="shadow_type">in</property>
                     <child>
                       <object class="GtkIconView" id="listaDiscos">
                         <property name="visible">True</property>
@@ -88,7 +91,8 @@
                     </child>
                     <child>
                       <object class="GtkComboBox" id="cbPartitions">
-                        <property name="width_request">200</property>
+                        <property name="width_request">205</property>
+                        <property name="height_request">30</property>
                         <property name="visible">True</property>
                         <property name="model">comboModel</property>
                         <signal name="changed" handler="on_cb_change"/>
@@ -121,7 +125,9 @@
                             <child>
                               <object class="GtkVBox" id="vbox4">
                                 <property name="visible">True</property>
+                                <property name="border_width">3</property>
                                 <property name="orientation">vertical</property>
+                                <property name="spacing">6</property>
                                 <child>
                                   <object class="GtkHBox" id="hboxWarning">
                                     <child>
@@ -156,98 +162,77 @@
                                     <property name="visible">True</property>
                                     <property name="n_rows">3</property>
                                     <property name="n_columns">2</property>
-                                    <property name="column_spacing">4</property>
+                                    <property name="row_spacing">20</property>
                                     <child>
-                                      <object class="GtkLabel" id="label4">
+                                      <object class="GtkLabel" id="volumeLabel">
                                         <property name="visible">True</property>
                                         <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">&lt;b&gt;File system  type&lt;/b&gt;</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Volume&lt;/b&gt;</property>
                                         <property name="use_markup">True</property>
-                                        <property name="justify">center</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel" id="lbVolume">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">None</property>
                                       </object>
                                       <packing>
-                                        <property name="top_attach">1</property>
-                                        <property name="bottom_attach">2</property>
-                                        <property name="x_options">GTK_FILL</property>
-                                        <property name="y_padding">20</property>
+                                        <property name="left_attach">1</property>
+                                        <property name="right_attach">2</property>
                                       </packing>
                                     </child>
                                     <child>
                                       <object class="GtkLabel" id="label5">
                                         <property name="visible">True</property>
                                         <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">&lt;b&gt;Mount Point&lt;/b&gt;</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;File system type&lt;/b&gt;</property>
                                         <property name="use_markup">True</property>
-                                        <property name="justify">center</property>
                                       </object>
                                       <packing>
-                                        <property name="top_attach">2</property>
-                                        <property name="bottom_attach">3</property>
-                                        <property name="x_options">GTK_FILL</property>
-                                        <property name="y_padding">20</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkLabel" id="lbVolume">
-                                        <property name="visible">True</property>
-                                        <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">None
-</property>
-                                      </object>
-                                      <packing>
-                                        <property name="left_attach">1</property>
-                                        <property name="right_attach">2</property>
-                                        <property name="x_options">GTK_FILL</property>
-                                        <property name="x_padding">100</property>
+                                        <property name="top_attach">1</property>
+                                        <property name="bottom_attach">2</property>
                                       </packing>
                                     </child>
                                     <child>
                                       <object class="GtkLabel" id="lbFsType">
                                         <property name="visible">True</property>
-                                        <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">None
-</property>
+                                        <property name="label" translatable="yes">None</property>
                                       </object>
                                       <packing>
                                         <property name="left_attach">1</property>
                                         <property name="right_attach">2</property>
                                         <property name="top_attach">1</property>
                                         <property name="bottom_attach">2</property>
-                                        <property name="x_options">GTK_FILL</property>
-                                        <property name="x_padding">100</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel" id="label7">
+                                        <property name="visible">True</property>
+                                        <property name="xalign">0</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Mount point&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                      </object>
+                                      <packing>
+                                        <property name="top_attach">2</property>
+                                        <property name="bottom_attach">3</property>
                                       </packing>
                                     </child>
                                     <child>
                                       <object class="GtkLabel" id="lbMount">
                                         <property name="visible">True</property>
-                                        <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">None
-</property>
+                                        <property name="label" translatable="yes">None</property>
                                       </object>
                                       <packing>
                                         <property name="left_attach">1</property>
                                         <property name="right_attach">2</property>
                                         <property name="top_attach">2</property>
                                         <property name="bottom_attach">3</property>
-                                        <property name="x_options">GTK_FILL</property>
-                                        <property name="x_padding">100</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkLabel" id="label3">
-                                        <property name="visible">True</property>
-                                        <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">&lt;b&gt;Volume name&lt;/b&gt;</property>
-                                        <property name="use_markup">True</property>
-                                        <property name="justify">center</property>
-                                      </object>
-                                      <packing>
-                                        <property name="x_options">GTK_FILL</property>
-                                        <property name="y_padding">20</property>
                                       </packing>
                                     </child>
                                   </object>
                                   <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">False</property>
                                     <property name="position">1</property>
                                   </packing>
                                 </child>
