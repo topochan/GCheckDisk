@@ -170,7 +170,7 @@ class CheckDisk:
 		self.pathGlade= os.path.join(sys.path[0],self.shareDir,self.xmlFile)		
 		self.iconImage='icon.png'
 		self.iconPath = os.path.join(sys.path[0],self.shareDir,self.iconImage)
-		self.diskIcon=self.get_icon(gtk.STOCK_HARDDISK,48)
+		self.diskIcon=self.get_icon("drive-harddisk",48)
 		self.volumIcon= self.get_icon(gtk.STOCK_HARDDISK,22)
 
 		self.builder = gtk.Builder()
@@ -193,6 +193,11 @@ class CheckDisk:
 		self.textBufferVT=self.builder.get_object('textBufferVT')
 		self.wCheck= self.builder.get_object('wCheck')
 		self.progress= self.builder.get_object('pbCheck')
+		#self.borderbox= self.builder.get_object('eventbox1')
+		#
+		#'''Set the eventbox'''
+		#self.borderbox.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse('#333'))
+		#self.borderbox.set_size_request(-1, 130)
 		
 
 		
